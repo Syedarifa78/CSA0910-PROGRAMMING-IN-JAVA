@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the number of elements in array: ");
+        int n = sc.nextInt();
+
+        int[] arr = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter element " + (i + 1) + ": ");
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.print("Non-duplicate items: [");
+
+        for (int i = 0; i < n; i++) {
+            boolean duplicate = false;
+
+            for (int j = 0; j < i; j++) {
+                if (arr[i] == arr[j]) {
+                    duplicate = true;
+                    break;
+                }
+            }
+
+            if (!duplicate) {
+                System.out.print(arr[i]);
+
+                // Print comma only if another unique element exists
+                boolean more = false;
+                for (int k = i + 1; k < n; k++) {
+                    boolean dup = false;
+                    for (int l = 0; l <= i; l++) {
+                        if (arr[k] == arr[l]) {
+                            dup = true;
+                            break;
+                        }
+                    }
+                    if (!dup) {
+                        more = true;
+                        break;
+                    }
+                }
+
+                if (more)
+                    System.out.print(", ");
+            }
+        }
+
+        System.out.println("]");
+
+        sc.close();
+    }
+}
