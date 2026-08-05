@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Decimal Number: ");
+
+        if (sc.hasNextInt()) {
+
+            int decimal = sc.nextInt();
+
+            if (decimal < 0) {
+                System.out.println("Invalid Input! Enter a non-negative integer.");
+            } else {
+                String binary = Integer.toBinaryString(decimal);
+                String octal = Integer.toOctalString(decimal);
+
+                System.out.println("Binary Number = " + binary);
+                System.out.println("Octal = " + octal);
+            }
+
+        } else {
+            System.out.println("Invalid Input! Please enter a valid integer.");
+        }
+
+        sc.close();
+    }
+}
