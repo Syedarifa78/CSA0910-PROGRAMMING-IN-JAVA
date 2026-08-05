@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Binary Number: ");
+        String binary = sc.next();
+
+        // Validate binary number
+        if (!binary.matches("[01]+")) {
+            System.out.println("Invalid Binary Number!");
+            return;
+        }
+
+        int decimal = Integer.parseInt(binary, 2);
+        String octal = Integer.toOctalString(decimal);
+
+        System.out.println("Decimal Number: " + decimal);
+        System.out.println("Octal: " + octal);
+
+        sc.close();
+    }
+}
