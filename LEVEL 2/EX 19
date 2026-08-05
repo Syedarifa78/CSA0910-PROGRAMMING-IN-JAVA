@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+class TableThread extends Thread {
+    int num;
+
+    TableThread(int num) {
+        this.num = num;
+    }
+
+    public void run() {
+        System.out.println("\nMultiplication Table of " + num);
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(num + " X " + i + " = " + (num * i));
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter First Number: ");
+
+        if (!sc.hasNextInt()) {
+            System.out.println("Invalid Input!");
+            return;
+        }
+        int n1 = sc.nextInt();
+
+        System.out.print("Enter Second Number: ");
+
+        if (!sc.hasNextInt()) {
+            System.out.println("Invalid Input!");
+            return;
+        }
+        int n2 = sc.nextInt();
+
+        TableThread t1 = new TableThread(n1);
+        TableThread t2 = new TableThread(n2);
+
+       
+        System.out.println("Thread State Before Start:");
+        System.out.println("Thread-1: " + t1.getState());
+        System.out.println("Thread-2: " + t2.getState());
+
+        
+        t1.start();
+        t2.start();
+
+        try {
+            t1.join();
+            t2.join();
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+
+    
+        System.out.println("\nThread State After Completion:");
+        System.out.println("Thread-1: " + t1.getState());
+        System.out.println("Thread-2: " + t2.getState());
+
+        sc.close();
+    }
+}
