@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+class Bank {
+    double getRateOfInterest() {
+        return 0;
+    }
+}
+
+class SBI extends Bank {
+    double getRateOfInterest() {
+        return 8.4;
+    }
+}
+
+class ICICI extends Bank {
+    double getRateOfInterest() {
+        return 7.3;
+    }
+}
+
+class AXIS extends Bank {
+    double getRateOfInterest() {
+        return 9.7;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Bank Name: ");
+        String bank = sc.next().toUpperCase();
+
+        Bank b;
+
+        switch (bank) {
+            case "SBI":
+                b = new SBI();
+                break;
+
+            case "ICICI":
+                b = new ICICI();
+                break;
+
+            case "AXIS":
+                b = new AXIS();
+                break;
+
+            default:
+                System.out.println("Invalid Bank Name!");
+                return;
+        }
+
+        System.out.println("Rate of Interest: " + b.getRateOfInterest() + "%");
+
+        sc.close();
+    }
+}
