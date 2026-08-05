@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int totalBalance = 0;
+
+        for (int i = 1; i <= 4; i++) {
+
+            System.out.print("Enter the " + i + " Denomination: ");
+            int denomination = sc.nextInt();
+
+            if (denomination != 2000 && denomination != 500 &&
+                denomination != 200 && denomination != 100) {
+                System.out.println("Invalid Denomination!");
+                return;
+            }
+
+            System.out.print("Enter the " + i + " Denomination number of notes: ");
+            int notes = sc.nextInt();
+
+            if (notes < 0) {
+                System.out.println("Invalid number of notes!");
+                return;
+            }
+
+            totalBalance += denomination * notes;
+        }
+
+        System.out.println("Total Available Balance in ATM: " + totalBalance);
+
+        sc.close();
+    }
+}
