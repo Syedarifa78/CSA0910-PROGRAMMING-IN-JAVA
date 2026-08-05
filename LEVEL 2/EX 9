@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the marks in Python: ");
+        if (!sc.hasNextInt()) {
+            System.out.println("Invalid Input!");
+            return;
+        }
+        int python = sc.nextInt();
+
+        System.out.print("Enter the marks in C Programming: ");
+        if (!sc.hasNextInt()) {
+            System.out.println("Invalid Input!");
+            return;
+        }
+        int c = sc.nextInt();
+
+        System.out.print("Enter the marks in Mathematics: ");
+        if (!sc.hasNextInt()) {
+            System.out.println("Invalid Input!");
+            return;
+        }
+        int maths = sc.nextInt();
+
+        System.out.print("Enter the marks in Physics: ");
+        if (!sc.hasNextInt()) {
+            System.out.println("Invalid Input!");
+            return;
+        }
+        int physics = sc.nextInt();
+
+        // Validate marks
+        if (python < 0 || python > 100 ||
+            c < 0 || c > 100 ||
+            maths < 0 || maths > 100 ||
+            physics < 0 || physics > 100) {
+
+            System.out.println("Invalid Marks! Marks should be between 0 and 100.");
+            return;
+        }
+
+        int total = python + c + maths + physics;
+        double aggregate = total / 4.0;
+
+        System.out.println("Total = " + total);
+        System.out.println("Aggregate = " + aggregate);
+
+        if (aggregate > 75) {
+            System.out.println("DISTINCTION");
+        } else if (aggregate >= 60 && aggregate < 75) {
+            System.out.println("FIRST DIVISION");
+        } else if (aggregate >= 50 && aggregate < 60) {
+            System.out.println("SECOND DIVISION");
+        } else if (aggregate >= 40 && aggregate < 50) {
+            System.out.println("THIRD DIVISION");
+        } else {
+            System.out.println("FAIL");
+        }
+
+        sc.close();
+    }
+}
