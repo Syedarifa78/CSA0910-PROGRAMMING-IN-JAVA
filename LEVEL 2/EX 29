@@ -1,0 +1,30 @@
+import java.util.*;
+
+class Sort<T extends Comparable<T>> {
+    T[] a;
+
+    Sort(T[] a) {
+        this.a = a;
+    }
+
+    void sort() {
+        Arrays.sort(a);
+        for (T x : a)
+            System.out.print(x + " ");
+        System.out.println();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Integer[] n = {5, 2, 8, 1};
+        String[] s = {"Banana", "Apple", "Mango"};
+
+        System.out.print("Sorted Numbers: ");
+        new Sort<Integer>(n).sort();
+
+        System.out.print("Sorted Strings: ");
+        new Sort<String>(s).sort();
+    }
+}
