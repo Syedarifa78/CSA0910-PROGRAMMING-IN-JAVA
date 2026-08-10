@@ -1,0 +1,20 @@
+public class Main {
+    public static void main(String[] args) {
+
+        int a = 10, b = 5;
+
+        System.out.println("Addition: " + (a + b));
+        System.out.println("Subtraction: " + (a - b));
+        System.out.println("Multiplication: " + (a * b));
+
+        try {
+            System.out.println("Division: " + (a / b));
+
+            int x = 10, y = 0;
+            System.out.println("Division by Zero: " + (x / y));
+
+        } catch (ArithmeticException e) {
+            System.out.println("Arithmetic Exception: Cannot divide by zero");
+        }
+    }
+}
