@@ -1,0 +1,39 @@
+public class Main {
+
+    static int count = 0;
+
+    static void generate(String tiles, boolean[] used) {
+        for (int i = 0; i < tiles.length(); i++) {
+
+            if (used[i])
+                continue;
+
+          
+            if (i > 0 && tiles.charAt(i) == tiles.charAt(i - 1)
+                    && !used[i - 1])
+                continue;
+
+            used[i] = true;
+            count++;
+
+            generate(tiles, used);
+
+            used[i] = false;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        String tiles = "AAB";
+
+        char[] arr = tiles.toCharArray();
+        java.util.Arrays.sort(arr);
+        tiles = new String(arr);
+
+        boolean[] used = new boolean[tiles.length()];
+
+        generate(tiles, used);
+
+        System.out.println("Number of possible sequences: " + count);
+    }
+}
