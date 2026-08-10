@@ -1,0 +1,15 @@
+class Box {
+    int length = 10;
+    int width = 5;
+    int height = 4;
+
+    Box() {
+        System.out.println("Volume of Box = " + (length * width * height));
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Box b = new Box();
+    }
+}
