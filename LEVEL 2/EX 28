@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Map<Integer, String> emp = new HashMap<>();
+
+        
+        emp.put(101, "Arun");
+        emp.put(102, "Priya");
+        emp.put(103, "Kumar");
+
+        System.out.println("Employee Record: " + emp);
+
+       
+        System.out.println("Is Map Empty? " + emp.isEmpty());
+
+    
+        emp.remove(102);
+        System.out.println("After Removing 102: " + emp);
+
+       
+        emp.clear();
+        System.out.println("After Clear: " + emp);
+    }
+}
