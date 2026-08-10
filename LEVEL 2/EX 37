@@ -1,0 +1,14 @@
+public class Main {
+    public static void main(String[] args) {
+
+        String num1 = "123";
+        String num2 = "45";
+
+        int a = Integer.parseInt(num1);
+        int b = Integer.parseInt(num2);
+
+        String result = String.valueOf(a * b);
+
+        System.out.println("Product: " + result);
+    }
+}
