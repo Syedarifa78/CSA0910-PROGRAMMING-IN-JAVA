@@ -1,0 +1,33 @@
+class Numbers extends Thread {
+
+    String name;
+
+    Numbers(String name) {
+        this.name = name;
+    }
+
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(name + ": " + i);
+
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Numbers t1 = new Numbers("Thread 1");
+        Numbers t2 = new Numbers("Thread 2");
+        Numbers t3 = new Numbers("Thread 3");
+
+        t1.start();
+        t2.start();
+        t3.start();
+    }
+}
