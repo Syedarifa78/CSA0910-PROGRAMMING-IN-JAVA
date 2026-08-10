@@ -1,0 +1,22 @@
+import java.util.Hashtable;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Hashtable<Integer, String> bank = new Hashtable<>();
+
+        bank.put(101, "Arun");
+        bank.put(102, "Kumar");
+        bank.put(103, "Priya");
+
+        System.out.println("Bank Details: " + bank);
+
+      
+        System.out.println("Size of Hashtable: " + bank.size());
+
+        
+        bank.clear();
+
+        System.out.println("After Clearing: " + bank);
+    }
+}
