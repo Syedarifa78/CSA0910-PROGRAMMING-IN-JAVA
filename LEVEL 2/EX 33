@@ -1,0 +1,17 @@
+public class Main {
+    public static void main(String[] args) {
+
+        int n = 8;
+        int[] a = {4, 5, 3, 7, 8, 6, 1};
+
+        int total = n * (n + 1) / 2;
+        int sum = 0;
+
+        for (int x : a)
+            sum += x;
+
+        int missing = total - sum;
+
+        System.out.println("Missing Number: " + missing);
+    }
+}
