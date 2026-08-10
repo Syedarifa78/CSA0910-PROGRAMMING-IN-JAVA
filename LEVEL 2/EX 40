@@ -1,0 +1,64 @@
+import java.util.*;
+
+class ExamRoom {
+    int n;
+    List<Integer> seats = new ArrayList<>();
+
+    ExamRoom(int n) {
+        this.n = n;
+    }
+
+    int seat() {
+        if (seats.isEmpty()) {
+            seats.add(0);
+            return 0;
+        }
+
+        int bestSeat = 0;
+        int maxDist = seats.get(0);
+
+        
+        for (int i = 0; i < seats.size() - 1; i++) {
+            int left = seats.get(i);
+            int right = seats.get(i + 1);
+            int dist = (right - left) / 2;
+
+            if (dist > maxDist) {
+                maxDist = dist;
+                bestSeat = left + dist;
+            }
+        }
+
+        
+        int lastDist = n - 1 - seats.get(seats.size() - 1);
+
+        if (lastDist > maxDist) {
+            bestSeat = n - 1;
+        }
+
+        seats.add(bestSeat);
+        Collections.sort(seats);
+
+        return bestSeat;
+    }
+
+    void leave(int p) {
+        seats.remove(Integer.valueOf(p));
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        ExamRoom room = new ExamRoom(10);
+
+        System.out.println(room.seat());
+        System.out.println(room.seat());
+        System.out.println(room.seat());
+        System.out.println(room.seat());
+
+        room.leave(4);
+
+        System.out.println(room.seat());
+    }
+}
