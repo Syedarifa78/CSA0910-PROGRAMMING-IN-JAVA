@@ -1,0 +1,37 @@
+class Student {
+    String name;
+    int regNo;
+    int m1, m2, m3, m4, m5;
+    int total;
+    double average;
+
+    Student(String name, int regNo, int m1, int m2, int m3, int m4, int m5) {
+        this.name = name;
+        this.regNo = regNo;
+        this.m1 = m1;
+        this.m2 = m2;
+        this.m3 = m3;
+        this.m4 = m4;
+        this.m5 = m5;
+
+        total = m1 + m2 + m3 + m4 + m5;
+        average = total / 5.0;
+    }
+
+    void display() {
+        System.out.println("Student Name: " + name);
+        System.out.println("Register Number: " + regNo);
+        System.out.println("Marks: " + m1 + " " + m2 + " " + m3 + " " + m4 + " " + m5);
+        System.out.println("Total: " + total);
+        System.out.println("Average: " + average);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Student s = new Student("Arifa", 101, 80, 85, 90, 75, 95);
+
+        s.display();
+    }
+}
