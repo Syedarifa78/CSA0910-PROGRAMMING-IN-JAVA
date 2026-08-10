@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        ArrayList<String> list = new ArrayList<>(
+            Arrays.asList("C", "A", "E", "B", "D", "F")
+        );
+
+        ListIterator<String> it = list.listIterator();
+
+       
+        while (it.hasNext()) {
+            String s = it.next();
+            it.set(s + "+");
+        }
+
+        
+        System.out.println("Reverse Order:");
+
+        while (it.hasPrevious()) {
+            System.out.print(it.previous() + " ");
+        }
+    }
+}
