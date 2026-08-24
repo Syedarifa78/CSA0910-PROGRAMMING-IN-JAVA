@@ -1,0 +1,38 @@
+import java.util.*;
+
+class WeakestRows {
+    public static void main(String[] args) {
+        int[][] mat = {
+            {1,1,0,0,0},
+            {1,1,1,1,0},
+            {1,0,0,0,0},
+            {1,1,0,0,0},
+            {1,1,1,1,1}
+        };
+
+        int k = 3;
+        Integer[] rows = new Integer[mat.length];
+
+        for (int i = 0; i < mat.length; i++)
+            rows[i] = i;
+
+        Arrays.sort(rows, (a, b) -> {
+            int sa = 0, sb = 0;
+
+            for (int x : mat[a]) sa += x;
+            for (int x : mat[b]) sb += x;
+
+            if (sa != sb)
+                return sa - sb;
+
+            return a - b;
+        });
+
+        System.out.print("Weakest rows: [");
+        for (int i = 0; i < k; i++) {
+            System.out.print(rows[i]);
+            if (i < k - 1) System.out.print(", ");
+        }
+        System.out.println("]");
+    }
+}
