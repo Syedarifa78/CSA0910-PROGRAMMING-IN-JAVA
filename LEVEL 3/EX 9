@@ -1,0 +1,42 @@
+import java.util.*;
+
+class ReverseAdd {
+    static long reverse(long n) {
+        long r = 0;
+        while (n > 0) {
+            r = r * 10 + n % 10;
+            n /= 10;
+        }
+        return r;
+    }
+
+    static boolean palindrome(long n) {
+        return n == reverse(n);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number: ");
+        String s = sc.next();
+
+        try {
+            long n = Long.parseLong(s);
+
+            if (n < 0) {
+                System.out.println("Invalid number");
+                return;
+            }
+
+            while (!palindrome(n)) {
+                long r = reverse(n);
+                System.out.println(n + " + " + r + " = " + (n + r));
+                n += r;
+            }
+
+            System.out.println(n + " is a Palindrome");
+        } catch (Exception e) {
+            System.out.println("Invalid number");
+        }
+    }
+}
