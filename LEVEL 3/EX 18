@@ -1,0 +1,61 @@
+import java.util.*;
+
+interface Marks {
+    void getMarks();
+}
+
+interface Result {
+    void calculate();
+}
+
+class Student implements Marks, Result {
+    double[] m = new double[6];
+
+    public void getMarks() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Python: ");
+        m[0] = sc.nextDouble();
+        System.out.print("C Programming: ");
+        m[1] = sc.nextDouble();
+        System.out.print("Mathematics: ");
+        m[2] = sc.nextDouble();
+        System.out.print("Physics: ");
+        m[3] = sc.nextDouble();
+        System.out.print("Chemistry: ");
+        m[4] = sc.nextDouble();
+        System.out.print("Professional Ethics: ");
+        m[5] = sc.nextDouble();
+    }
+
+    public void calculate() {
+        double total = 0;
+
+        for (double x : m)
+            total += x;
+
+        double aggregate = total / 6;
+
+        System.out.println("Total = " + total);
+        System.out.printf("Aggregate = %.2f\n", aggregate);
+
+        if (aggregate > 75)
+            System.out.println("Class: DISTINCTION");
+        else if (aggregate >= 60)
+            System.out.println("Class: FIRST DIVISION");
+        else if (aggregate >= 50)
+            System.out.println("Class: SECOND DIVISION");
+        else if (aggregate >= 40)
+            System.out.println("Class: THIRD DIVISION");
+        else
+            System.out.println("Class: FAIL");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student s = new Student();
+        s.getMarks();
+        s.calculate();
+    }
+}
