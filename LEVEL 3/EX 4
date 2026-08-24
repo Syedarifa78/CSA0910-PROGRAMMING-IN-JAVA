@@ -1,0 +1,44 @@
+import java.util.*;
+
+class PrimeNumbers {
+    static boolean prime(int n) {
+        if (n < 2) return false;
+        for (int i = 2; i <= Math.sqrt(n); i++)
+            if (n % i == 0) return false;
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("N = ");
+        double input = sc.nextDouble();
+
+        if (input <= 0 || input != (int)input) {
+            System.out.println("Invalid N");
+            return;
+        }
+
+        int n = (int)input, count = 0, num = 1, nth = 0;
+
+        while (count < n) {
+            num++;
+            if (prime(num)) {
+                count++;
+                if (count == n) nth = num;
+            }
+        }
+
+        System.out.println(n + " th Prime number is " + nth);
+        System.out.print(n + " prime numbers after " + nth + " are: ");
+
+        count = 0;
+        num = nth + 1;
+        while (count < n) {
+            if (prime(num)) {
+                System.out.print(num + (count == n - 1 ? "" : ", "));
+                count++;
+            }
+            num++;
+        }
+    }
+}
