@@ -1,0 +1,32 @@
+import java.util.*;
+
+class Permutations {
+    static void permute(char[] a, int l, int r, Set<String> set) {
+        if (l == r) {
+            set.add(new String(a));
+            return;
+        }
+
+        for (int i = l; i <= r; i++) {
+            char t = a[l]; a[l] = a[i]; a[i] = t;
+            permute(a, l + 1, r, set);
+            t = a[l]; a[l] = a[i]; a[i] = t;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Given Number: ");
+        String n = sc.next();
+
+        if (n.startsWith("-"))
+            n = n.substring(1);
+
+        Set<String> set = new TreeSet<>();
+        permute(n.toCharArray(), 0, n.length() - 1, set);
+
+        System.out.println("Permutations are:");
+        for (String s : set)
+            System.out.println(s);
+    }
+}
