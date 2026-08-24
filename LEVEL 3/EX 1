@@ -1,0 +1,14 @@
+import java.util.*;
+
+class DaysConvert {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of days: ");
+        int d = sc.nextInt();
+
+        System.out.println("No. of years: " + d / 365);
+        d %= 365;
+        System.out.println("No. of weeks: " + d / 7);
+        System.out.println("No. of days: " + d % 7);
+    }
+}
