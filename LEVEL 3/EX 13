@@ -1,0 +1,13 @@
+import java.util.*;
+
+class LastWord {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter string: ");
+        String s = sc.nextLine().trim();
+
+        int i = s.lastIndexOf(" ");
+        System.out.println("Length of last word: " + (s.length() - i - 1));
+    }
+}
