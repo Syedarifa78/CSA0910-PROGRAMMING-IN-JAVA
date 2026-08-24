@@ -1,0 +1,28 @@
+import java.util.*;
+
+class RansomNote {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Ransom Note: ");
+        String ransom = sc.nextLine();
+
+        System.out.print("Magazine: ");
+        String magazine = sc.nextLine();
+
+        int[] count = new int[256];
+
+        for (char c : magazine.toCharArray())
+            count[c]++;
+
+        for (char c : ransom.toCharArray()) {
+            if (count[c] == 0) {
+                System.out.println("false");
+                return;
+            }
+            count[c]--;
+        }
+
+        System.out.println("true");
+    }
+}
