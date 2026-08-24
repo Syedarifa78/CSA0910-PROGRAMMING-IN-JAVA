@@ -1,0 +1,32 @@
+import java.util.*;
+
+class PerfectSquares {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter lower range: ");
+        int low = sc.nextInt();
+
+        System.out.print("Enter upper range: ");
+        int high = sc.nextInt();
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        for (int i = low; i <= high; i++) {
+            int root = (int)Math.sqrt(i);
+            int n = i, sum = 0;
+
+            if (root * root == i) {
+                while (n > 0) {
+                    sum += n % 10;
+                    n /= 10;
+                }
+
+                if (sum < 10)
+                    list.add(i);
+            }
+        }
+
+        System.out.println(list);
+    }
+}
