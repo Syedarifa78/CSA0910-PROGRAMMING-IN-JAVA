@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter the income: ");
+        double income = sc.nextDouble();
+
+        double taxable = income - 250000;
+        double tax;
+
+        if (income <= 250000)
+            tax = 0;
+        else if (income <= 500000)
+            tax = taxable * 0.10;
+        else if (income <= 1000000)
+            tax = taxable * 0.20;
+        else
+            tax = taxable * 0.30;
+
+        if (taxable < 0)
+            taxable = 0;
+
+        System.out.println("Taxable Income: " + taxable);
+        System.out.println("Tax = " + tax);
+    }
+}
