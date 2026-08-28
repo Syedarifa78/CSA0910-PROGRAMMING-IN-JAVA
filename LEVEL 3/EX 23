@@ -1,0 +1,30 @@
+class Calculator {
+
+    public static void main(String[] args) {
+
+        Thread addition = new Thread(() -> {
+            int a = 20, b = 10;
+            System.out.println("Addition: " + (a + b));
+        }, "Addition Thread");
+
+        Thread subtraction = new Thread(() -> {
+            int a = 20, b = 10;
+            System.out.println("Subtraction: " + (a - b));
+        }, "Subtraction Thread");
+
+        Thread multiplication = new Thread(() -> {
+            int a = 20, b = 10;
+            System.out.println("Multiplication: " + (a * b));
+        }, "Multiplication Thread");
+
+        Thread division = new Thread(() -> {
+            int a = 20, b = 10;
+            System.out.println("Division: " + (a / b));
+        }, "Division Thread");
+
+        addition.start();
+        subtraction.start();
+        multiplication.start();
+        division.start();
+    }
+}
