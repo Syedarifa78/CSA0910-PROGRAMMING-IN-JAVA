@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+class Directory {
+
+    String name;
+    String address;
+    String telephone;
+    String mobile;
+    String headOfFamily;
+    String uniqueId;
+
+    Directory(String name, String address, String telephone,
+              String mobile, String headOfFamily, String uniqueId) {
+
+        this.name = name;
+        this.address = address;
+        this.telephone = telephone;
+        this.mobile = mobile;
+        this.headOfFamily = headOfFamily;
+        this.uniqueId = uniqueId;
+    }
+
+    void display() {
+        System.out.println("\n--- DIRECTORY DETAILS ---");
+        System.out.println("Name          : " + name);
+        System.out.println("Address       : " + address);
+        System.out.println("Telephone No. : " + telephone);
+        System.out.println("Mobile No.    : " + mobile);
+        System.out.println("Head of Family: " + headOfFamily);
+        System.out.println("Unique ID No. : " + uniqueId);
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter Address: ");
+        String address = sc.nextLine();
+
+        System.out.print("Enter Telephone Number: ");
+        String telephone = sc.nextLine();
+
+        System.out.print("Enter Mobile Number: ");
+        String mobile = sc.nextLine();
+
+        System.out.print("Enter Head of the Family: ");
+        String headOfFamily = sc.nextLine();
+
+        System.out.print("Enter Unique ID No.: ");
+        String uniqueId = sc.nextLine();
+
+        Directory d = new Directory(
+            name, address, telephone, mobile,
+            headOfFamily, uniqueId
+        );
+
+        d.display();
+
+        sc.close();
+    }
+}
