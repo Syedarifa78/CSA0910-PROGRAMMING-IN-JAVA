@@ -1,0 +1,79 @@
+class Vehicle {
+    String licensePlate;
+    String owner;
+
+    Vehicle(String licensePlate, String owner) {
+        this.licensePlate = licensePlate;
+        this.owner = owner;
+    }
+
+    void displayVehicle() {
+        System.out.println("License Plate: " + licensePlate);
+        System.out.println("Owner: " + owner);
+    }
+
+    public static void main(String[] args) {
+
+        Car car = new Car("TN01AB1234", "Arifa", 4);
+        Truck truck = new Truck("TN02CD5678", "Rahul", 10);
+        Motorcycle bike = new Motorcycle("TN03EF9012", "Priya", 2);
+
+        System.out.println("CAR DETAILS");
+        car.displayVehicle();
+        car.displayCar();
+
+        System.out.println();
+
+        System.out.println("TRUCK DETAILS");
+        truck.displayVehicle();
+        truck.displayTruck();
+
+        System.out.println();
+
+        System.out.println("MOTORCYCLE DETAILS");
+        bike.displayVehicle();
+        bike.displayMotorcycle();
+    }
+}
+
+
+class Car extends Vehicle {
+    int doors;
+
+    Car(String licensePlate, String owner, int doors) {
+        super(licensePlate, owner);
+        this.doors = doors;
+    }
+
+    void displayCar() {
+        System.out.println("Number of Doors: " + doors);
+    }
+}
+
+
+class Truck extends Vehicle {
+    int capacity;
+
+    Truck(String licensePlate, String owner, int capacity) {
+        super(licensePlate, owner);
+        this.capacity = capacity;
+    }
+
+    void displayTruck() {
+        System.out.println("Load Capacity: " + capacity + " tons");
+    }
+}
+
+
+class Motorcycle extends Vehicle {
+    int wheels;
+
+    Motorcycle(String licensePlate, String owner, int wheels) {
+        super(licensePlate, owner);
+        this.wheels = wheels;
+    }
+
+    void displayMotorcycle() {
+        System.out.println("Number of Wheels: " + wheels);
+    }
+}
